@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Chela+One');
+
+.row div{
+    border: 2px solid black;
+    height: 100%;
+}
+
+.f32{
+    font-size: 32px;
+}
+
+.googleFont{
+    font-family: 'Chela One', cursive !important; 
+}
+
+.blokk{
+    font-family: 'BLOKK';
+}
+
+#txtArc{
+    height: 100px;
+}
+
+.img200{
+    width: 200px;
+    height: 200px;
+}
