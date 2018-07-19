@@ -1,3 +1,4 @@
+//ArcText ///////////////////////////
 var example4 = $("#txtArc");
 
 example4.arctext({radius: 300})
@@ -11,10 +12,10 @@ setTimeout(function () {
             easing: 'ease-out'
         }
     });
-}, 5);
+}, 2000);
 
 
-//shuffle letter
+//shuffle letter ////////////////////////
 var txtMezclar = $("#txtMezclar");
 var txtTexto = $("#txtTexto");
 var mensaje = ['Hola Fernando...', 'Bienvenido a mi página', 'Espero que te guste'];
