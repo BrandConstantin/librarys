@@ -21,6 +21,16 @@
         <!-- Swiper´s css -->
         <link rel="stylesheet" href="plugins/swiper-4.3.3/dist/css/swiper.min.css">
 
+        <!-- Sweetalert
+        <link rel="stylesheet" href="plugins/sweetalert-master/css/variables.css"> -->
+
+        <!-- the date picker -->
+        <link rel="stylesheet" href="plugins/pickadate.js-master/compressed/themes/default.css">
+        <link rel="stylesheet" href="plugins/pickadate.js-master/compressed/themes/default.date.css">
+
+        <!-- chosen -->
+        <link rel="stylesheet" href="plugins/chosen/chosen.min.css">
+
     </head>
     <body>
 
@@ -81,6 +91,58 @@
                 </div>
             </div>
 
+            <hr/>
+
+            <!-- Modal de Bootstrap -->
+            <!-- Button trigger modal -->
+            <!--            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            Launch demo modal
+                        </button>-->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>One fine body&hellip;</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+            <hr/>
+
+            <!-- date picker -->
+            <input type="text" id="txtFecha" class="form-control fecha"/>
+            <button id="botObtener" type="button" class="btn btn-primary">Obtener Valor</button>
+
+            <hr/>
+
+            <!-- chosen -->
+            <select class="chosen-select form-control">
+                <option value="1">Rumania</option>
+                <option value="2">Bosnia</option>
+                <option value="3">Chequia</option>
+                <option value="4">Yugoslavia</option>
+                <option value="5">Ucrania</option>
+                <option value="6">Muntenegro</option>
+            </select>
+
+            <hr/>
+
+            <!-- complexify -->
+            <input type="text" id="pass" class="form-control"/>
+            <div class="progress">
+                <div id="progressBar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <span class="sr-only">60% Complete</span>
+                </div>
+            </div>
 
             <!-- Hasta aquí modificaremos -->
         </div>
@@ -99,6 +161,22 @@
 
         <!-- Swiper -->
         <script src="plugins/swiper-4.3.3/dist/js/swiper.min.js"></script>
+
+        <!-- Sweetalert -->
+        <script src="plugins/sweetalert-master/sweetalert/sweetalert.min.js"></script>
+
+        <!-- the date picker -->
+        <script src="plugins/pickadate.js-master/compressed/picker.js"></script>
+        <script src="plugins/pickadate.js-master/compressed/picker.date.js"></script>
+        <!-- Add the language *after* the pickadate script files -->
+        <script src="plugins/pickadate.js-master/compressed/translations/es_ES.js"></script>
+
+        <!-- chosen -->
+        <script src="plugins/chosen/chosen.jquery.min.js"></script>
+
+        <!-- complexify -->
+        <script src="plugins/complexify/jquery.complexify.banlist.js"></script>
+        <script src="plugins/complexify/jquery.complexify.min.js"></script>
 
         <!--Archivo personalizado de Javascript -->
         <script src="lib/curso5.js"></script>
