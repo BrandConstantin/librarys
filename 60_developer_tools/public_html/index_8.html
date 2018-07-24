@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Demo de Google Maps</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="plugins/googleMaps/css/bootstrap.min.css">
+
+        <style media="screen">
+            #gmap_canvas img{
+                max-width:none !important;
+                background:none!important
+            }
+        </style>
+
+        <!-- swiperbox -->
+        <link rel="stylesheet" href="plugins/swiperbox/swipebox-master/src/css/swipebox.min.css">
+
+        <!-- Google Maps -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEzPpI1vBU2JqUxKjWi-fDyH8vyByPdmk" async defer></script>
+
+    </head>
+    <body onload="cargar_mapa()">
+
+        <div class="container">
+
+            <h1>Usando GoogleMaps <small>ejemplo</small></h1>
+
+            <div id='gmap_canvas' style='height:350px;width:100%;'></div>
+
+
+        </div>
+
+        <div>
+            <a href="images/bebe.jpg" class="swipebox" title="My Caption">
+                Image 1
+            </a>
+            <a href="images/bedroom.jpg" class="swipebox" title="My Caption">
+                Image 2
+            </a>
+        </div>
+
+        <!-- swiperbox -->
+        <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+        <script src="plugins/swiperbox/swipebox-master/src/js/jquery.swipebox.min.js"></script>
+
+        <script src="plugins/googleMaps/js/app.js" charset="utf-8"></script>
+        <script src="lib/curso8.js"></script>
+</html>

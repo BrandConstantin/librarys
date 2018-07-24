@@ -78,3 +78,41 @@
     -webkit-align-items: center;
     align-items: center;
 }
+
+
+/*masonry*/
+.grid-item-masonry{
+    width: 300px;
+    /*height: 100%;*/
+    background-color: #000;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    position: absolute;
+}
+
+.grid-item-masonry p{
+    padding-left: 20px;
+    color: #fff;
+}
+
+
+/*bigvideo*/
+/* para que todo el texto se vea por encima del video */
+#big-video-wrap{
+    position: fixed;
+    z-index: -1;
+}
+
+
+/*videobg*/
+#div_demo, #div_demo2{
+    width: 300px;
+    height: 200px;
+}
+
+#caja{
+    height: 50px;
+    width: 50px;
+}
