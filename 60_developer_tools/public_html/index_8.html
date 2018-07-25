@@ -27,6 +27,8 @@ and open the template in the editor.
         <!-- Google Maps -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEzPpI1vBU2JqUxKjWi-fDyH8vyByPdmk" async defer></script>
 
+        <!-- flexdatalist -->
+        <link rel="stylesheet" href="plugins/flexdatalist/jquery-flexdatalist-2.2.4/jquery.flexdatalist.min.css">
     </head>
     <body onload="cargar_mapa()">
 
@@ -48,9 +50,34 @@ and open the template in the editor.
             </a>
         </div>
 
+        <div>
+            <input placeholder='Programming language name'
+                   class='flexdatalist'
+                   data-min-length='1'
+                   list='languages'
+                   name='language'
+                   type='text'>
+
+            <datalist id="languages">
+                <option value="PHP">PHP</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Cobol">Cobol</option>
+                <option value="C#">C#</option>
+                <option value="C++">C++</option>
+                <option value="Java">Java</option>
+                <option value="Pascal">Pascal</option>
+                <option value="FORTRAN">FORTRAN</option>
+                <option value="Lisp">Lisp</option>
+                <option value="Swift">Swift</option>
+            </datalist>
+        </div>
+
         <!-- swiperbox -->
         <script src="http://code.jquery.com/jquery-2.0.0.js"></script>
         <script src="plugins/swiperbox/swipebox-master/src/js/jquery.swipebox.min.js"></script>
+
+        <!-- flexdatalist -->
+        <script src="plugins/flexdatalist/jquery-flexdatalist-2.2.4/jquery.flexdatalist.min.js"></script>
 
         <script src="plugins/googleMaps/js/app.js" charset="utf-8"></script>
         <script src="lib/curso8.js"></script>
