@@ -1,0 +1,11 @@
+pruebas_index:
+    path: /pruebas/{lang}/{name}/{page}
+    defaults: {_controller: AppBundle:pruebas:index, lang: es, name: Gonzalez, page: 1}
+    methods: [GET, POST]
+    requirements:
+        #accepta caracteres y números
+        #name: \w+
+        #accepta solo caracteres
+        name: "[a-zA-Z]*"
+        page: \d+
+        lang: es|en|fr

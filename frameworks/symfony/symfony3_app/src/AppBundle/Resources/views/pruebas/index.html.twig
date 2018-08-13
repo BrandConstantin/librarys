@@ -1,0 +1,53 @@
+{% extends "layout.html.twig" %}
+{% block container %}
+    {{parent()}}
+    {{texto}}
+    <hr/>
+
+    {#esto es un comentario#}
+    {% if frutas.manzana starts with 'g' %}
+        manzana - {{frutas.manzana}}
+    {% endif %}
+    {% if frutas.manzana ends with 'g' %}
+        inexistente
+    {% endif %}
+    <hr/>
+
+    {% set variable = "Hola twig" %}
+    {{variable}}
+    <hr/>
+
+    <ul>
+        {% if productos | length > 2 %}
+            {% for producto in productos %}        
+                <li>{{producto.producto}} - {{producto.precio}}</li>
+                {% endfor %}
+            {% endif %}
+    </ul>
+    <hr/>
+
+    {% set fecha = date() %}
+    {% set texto = "        text    con   mucho             espacio" %}
+    {{texto | trim}}<br/>
+    {{fecha.date|date('d-m-Y')}}
+    <hr/>
+
+    {% set fecha = date("-3 days", "Europe/Madrid") %}
+    {{dump(fecha)}}
+    <hr/>
+
+    {{include('AppBundle:pruebas:partial.html.twig')}}
+    <hr/>
+
+    {{max([76, 99, 45, 42])}} - {{min([76, 99, 45, 42])}} <br/>
+    {{random(1000)}}<br/>
+    {{random(["HOLA", "QUE", "TAL"])}}<br/>
+    <hr/>
+
+    {% for i in range(0, 25, 4) %}        
+        {{i}} #
+    {% endfor %}
+    <hr/>
+
+    {{generateTable(productos) | raw}}  
+{% endblock %}
