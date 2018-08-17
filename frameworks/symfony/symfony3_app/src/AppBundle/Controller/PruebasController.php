@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Curso;
 use AppBundle\Form\CursoType;
+use Symfony\Component\Validator\Constraint\Email as Asserting;
 
 class PruebasController extends Controller {
 
@@ -218,13 +219,48 @@ class PruebasController extends Controller {
         die();
     }
 
-    public function formAction() {
+    public function formAction(Request $request) {
         $curso = new Curso();
         $form = $this->createForm(CursoType::class, $curso);
-        
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $status = "Formulario valido!";
+            $data = array(
+                'titulo' => $form->get('titulo')->getData(),
+                'descripcion' => $form->get('descripcion')->getData(),
+                'precio' => $form->get('precio')->getData(),
+            );
+        } else {
+            $status = null;
+            $data = null;
+        }
+
         return $this->render('AppBundle:pruebas:form.html.twig', array(
-            'form' => $form->createView()
+                    'form' => $form->createView(),
+                    'status' => $status,
+                    'data' => $data
         ));
+    }
+
+    //validar datos aislados
+    public function validarEmailAction($email) {
+        $emailConstraint = new Asserting;
+        $emailConstraint->message = "Pasame un buen correo";
+
+        $validator = $this->container->get('validator');
+        $error = $validator->validate(
+                $email, $emailConstraint
+        );
+
+        if (count($error == 0)) {
+            echo "<h3>Correo valido!</h3>";
+        } else {
+            echo $error[0]->getMessage();
+        }
+
+        die();
     }
 
 }
