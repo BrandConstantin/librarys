@@ -5,8 +5,8 @@ namespace BlogBundle\Entity;
 /**
  * Category
  */
-class Category
-{
+class Category {
+
     /**
      * @var integer
      */
@@ -21,15 +21,22 @@ class Category
      * @var string
      */
     private $description;
+    protected $entry;
 
+    public function __construct() {
+        $this->entry = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function __toString() {
+        return $this->name;
+    }
 
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -40,8 +47,7 @@ class Category
      *
      * @return Category
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -52,8 +58,7 @@ class Category
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -64,8 +69,7 @@ class Category
      *
      * @return Category
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -76,9 +80,12 @@ class Category
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
-}
 
+    public function getEntries() {
+        return $this->entry;
+    }
+
+}

@@ -2,11 +2,13 @@
 
 namespace BlogBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Tag
  */
-class Tag
-{
+class Tag {
+
     /**
      * @var integer
      */
@@ -21,15 +23,18 @@ class Tag
      * @var string
      */
     private $description;
+    protected $entryTag;
 
+    public function __construct() {
+        $this->entryTag = new ArrayCollection();
+    }
 
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -40,8 +45,7 @@ class Tag
      *
      * @return Tag
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -52,8 +56,7 @@ class Tag
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -64,8 +67,7 @@ class Tag
      *
      * @return Tag
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
 
         return $this;
@@ -76,9 +78,11 @@ class Tag
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
-}
 
+    public function getEntryTag(){
+        return $this->entryTag;
+    }
+}

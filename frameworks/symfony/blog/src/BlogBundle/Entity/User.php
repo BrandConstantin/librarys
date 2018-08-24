@@ -2,11 +2,13 @@
 
 namespace BlogBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * User
  */
-class User
-{
+class User implements UserInterface {
+
     /**
      * @var integer
      */
@@ -42,14 +44,32 @@ class User
      */
     private $imagen;
 
+    // AUTH
+
+    public function getUsername() {
+        return $this->email;
+    }
+
+    public function getSalt() {
+        return null;
+    }
+
+    public function getRoles() {
+        return array($this->getRole());
+    }
+
+    public function eraseCredentials() {
+        
+    }
+
+    // END AUTH
 
     /**
      * Get id
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -60,8 +80,7 @@ class User
      *
      * @return User
      */
-    public function setRole($role)
-    {
+    public function setRole($role) {
         $this->role = $role;
 
         return $this;
@@ -72,8 +91,7 @@ class User
      *
      * @return string
      */
-    public function getRole()
-    {
+    public function getRole() {
         return $this->role;
     }
 
@@ -84,8 +102,7 @@ class User
      *
      * @return User
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
 
         return $this;
@@ -96,8 +113,7 @@ class User
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -108,8 +124,7 @@ class User
      *
      * @return User
      */
-    public function setSurname($surname)
-    {
+    public function setSurname($surname) {
         $this->surname = $surname;
 
         return $this;
@@ -120,8 +135,7 @@ class User
      *
      * @return string
      */
-    public function getSurname()
-    {
+    public function getSurname() {
         return $this->surname;
     }
 
@@ -132,8 +146,7 @@ class User
      *
      * @return User
      */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
 
         return $this;
@@ -144,8 +157,7 @@ class User
      *
      * @return string
      */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
@@ -156,8 +168,7 @@ class User
      *
      * @return User
      */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
 
         return $this;
@@ -168,8 +179,7 @@ class User
      *
      * @return string
      */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
     }
 
@@ -180,8 +190,7 @@ class User
      *
      * @return User
      */
-    public function setImagen($imagen)
-    {
+    public function setImagen($imagen) {
         $this->imagen = $imagen;
 
         return $this;
@@ -192,9 +201,8 @@ class User
      *
      * @return string
      */
-    public function getImagen()
-    {
+    public function getImagen() {
         return $this->imagen;
     }
-}
 
+}
