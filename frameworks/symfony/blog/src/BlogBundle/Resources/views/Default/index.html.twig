@@ -1,4 +1,15 @@
 {% extends "BlogBundle::layout.html.twig" %}
+
 {% block content %}
-    hello world!
+
+    {% for message in app.session.flashbag().get('status') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    {% for entry in entries %}
+        <div class="col-lg-11">
+            {{entry.title}}
+        </div>
+    {% endfor %}
+
 {% endblock %}

@@ -1,6 +1,7 @@
 BlogBundle\Entity\Entry:
     type: entity
-    table: entry
+    table: entries
+    repositoryClass: BlogBundle\Repository\EntryRepository
     indexes:
         fk_entries_users:
             columns:
@@ -43,16 +44,6 @@ BlogBundle\Entity\Entry:
             options:
                 fixed: false
     manyToOne:
-        category:
-            targetEntity: Category
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: entry
-            joinColumns:
-                category_id:
-                    referencedColumnName: id
-            orphanRemoval: false
         user:
             targetEntity: User
             cascade: {  }
@@ -61,6 +52,16 @@ BlogBundle\Entity\Entry:
             inversedBy: null
             joinColumns:
                 user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        category:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: entry
+            joinColumns:
+                category_id:
                     referencedColumnName: id
             orphanRemoval: false
     oneToMany:
