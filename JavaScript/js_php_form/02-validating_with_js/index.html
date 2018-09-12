@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="mystyle.css" />
+</head>
+
+<!--
+    //para ver información sobre el formulario
+    document.getElementById("myform")
+
+    //para ver información sobre un campo input
+    document.getElementById("myname")
+
+    document.getElementById("myform").document.getElementByTagName("input")
+    document.getElementById("myform").document.getElementByTagName("input")[0]
+    document.forms
+    document.forms.myform
+    document.forms.myform.myname
+    document.theform
+    document.theform.myname
+    document.theform.requesttype
+    document.theform.requesttype[0]
+    document.theform.reference
+    document.theform.reference[0]
+    document.theform.myname.type
+    document.theform.myname.id
+    document.theform.myname.type=radio
+-->
+
+<body>
+    <form id="myform" name="theform" class="group" action="#" method="POST">
+        <fieldset id="login" title="Login Info">
+            <legend>Login Info</legend>
+            <ol>
+                <li>
+                    <label for="myname">Name *</label>
+                    <input type="text" name="myname" id="myname" title="Please enter your name" autofocus placeholder="Last, First" required />
+                </li>
+                <li>
+                    <label for="myemail">Email *</label>
+                    <input type="email" name="myemail" id="myemail" required autocomplete="off" />
+                </li>
+                <li>
+                    <label for="mypassword">Password</label>
+                    <input type="password" name="mypassword" id="mypassword" />
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset id="other" class="hidden" title="Other Info">
+            <legend>Other</legend>
+            <ol>
+                <li>
+                    <label for="myurl">Website *</label>
+                    <input type="url" name="myurl" id="myurl" required />
+                </li>
+                <li>
+                    <label for="mytelephone">Telephone</label>
+                    <input type="tel" name="mytelephone" id="mytelephone" />
+                </li>
+                <li class="singleline">
+                    <input type="checkbox" id="subscribeitem" name="subscribe" CHECKED value="yes" />
+                    <label for="subscribeitem">Subscribe to our mailing list?</label>
+                </li>
+                <li>
+                    <label for="reference">How did you hear about us?</label>
+                    <select name="reference" id="reference">
+                                <option>Choose...</option>
+                                <option value="friend">A friend</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="twitter">Twitter</option>
+                            </select>
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset id="comments" class="hidden" title="Comments">
+            <legend>Comments</legend>
+            <ol>
+                <li>
+                    <div class="grouphead">Request Type</div>
+                    <ol>
+                        <li>
+                            <input type="radio" name="requesttype" value="question" id="questionitem" />
+                            <label for="questionitem">Question</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="requesttype" value="comment" id="commentitem" />
+                            <label for="commentitem">Comment</label>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <label for="mycomments">Comment</label>
+                    <textarea name="mycomments" id="mycomments"></textarea>
+                </li>
+            </ol>
+            <button type="submit">send</button>
+        </fieldset>
+    </form>
+    <script>
+        //myname
+        document.theform.myname.onfocus = function() {
+            document.getElementById('mynamehint').innerHTML = "(Enter last name, then first)";
+        }
+
+        document.theform.myname.onblur = function() {
+            document.getElementById('mynamehint').innerHTML = "";
+        }
+
+        //myurl
+        document.theform.myurl.onblur = function() {
+            if (document.theform.myurl.value === "") {
+                document.getElementById('formerror').innerHTML = ("The url field is required")
+            }
+            if (document.theform.myurl.value === "http://") {
+                document.getElementById('formerror').innerHTML = ("Please add a valid url")
+            }
+        }
+
+        document.theform.myurl.onchange = function() {
+            var theUrl = document.theform.myurl.value;
+
+            if (theUrl.indexOf("http://")) {
+                document.getElementById('formerror').innerHTML = ("Url must begin with http://")
+
+                //autocompletar con el http
+                document.theform.myurl.value = "http://" + document.theform.myurl.value;
+            }
+        }
+    </script>
+</body>
+
+</html>

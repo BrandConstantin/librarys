@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Multiple Field Types</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="mystyle.css" />
+</head>
+
+<body>
+    <form class="group" action="#">
+        <ol>
+            <li class="group">
+                <label for="namefield">Name</label>
+                <input name="name" maxlength="40" required placeholder="Please enter your full name" id="namefield" />
+            </li>
+            <li class="group">
+                <label for="countyfield">County</label>
+                <input type="text" name="county" id="countyfield" list="counties" />
+                <datalist id="counties">
+                    <option value="Orange">
+                    <option value="Seminole">
+                    <option value="Volusia">
+                    <option value="Brevard">
+                </datalist>
+
+            </li>
+            <li class="group">
+                <label for="emailfield">Email</label>
+                <input type="email" multiple name="email" id="emailfield" />
+            </li>
+
+            <li class="group">
+                <label for="websitefield">Website</label>
+                <input type="url" name="website " id="websitefield" />
+            </li>
+
+            <li class="group">
+                <label for="agefield">Age</label>
+                <input type="number" min="18" name="age" id="agefield" />
+            </li>
+            <li class="group">
+                <label for="datetimefield">Reservation Date</label>
+                <input type="date" min="2018-09-10" max="2030-12-31" name="date" id="date" />
+            </li>
+            <li class="group">
+                <label for="filefield">Upload a File</label>
+                <input type="file" accept="image/*, audio/mp3, video/*" name="uploads" multiple id="filefield" />
+            </li>
+            <li class="group">
+                <label for="patternfield">Pattern Matching</label>
+                <input name="myfield" pattern="[Tt]exas" />
+                <!--
+                <input name="myfield" pattern="[.]exas" />
+                <input name="myfield" pattern="[a-z>]+" />
+                <input name="myfield" pattern="[A-Za-z]exas" />
+                <input name="myfield" pattern="[0-9 ]" />
+                <input name="myfield" pattern="[0-9]{5}" />
+                <input name="myfield" pattern="\d{5}" />
+                -->
+            </li>
+        </ol>
+        <button type="submit">send</button>
+    </form>
+</body>
+
+</html>
